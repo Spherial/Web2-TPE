@@ -1,5 +1,5 @@
 Integrantes
-- Aceto Simón Santiago
+- Aceto Simón Santiago (xsub123@gmail.com)
 - Lautaro Andrés Acosta
 
 Temática
