@@ -1,6 +1,6 @@
 Integrantes
 - Aceto Simón Santiago (xsub123@gmail.com)
-- Lautaro Andrés Acosta
+- Lautaro Andrés Acosta (l.andresacosta00@gmail.com)
 
 Temática
 Búsqueda de Películas en plataformas de Streaming
@@ -10,5 +10,6 @@ Una página para buscar peliculas disponibles en plataformas de Streaming en Arg
 Se pueden consultar datos de las propias películas, asi como de las plataformas en las que se encuentran.
 
 
-DER
-nombredelarchivo.extension
+Diagrama Entidad-Relacion
+
+![](images/der.png)
