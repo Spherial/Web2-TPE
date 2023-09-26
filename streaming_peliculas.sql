@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-09-2023 a las 00:13:16
+-- Tiempo de generación: 26-09-2023 a las 04:26:00
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -58,7 +58,7 @@ CREATE TABLE `plataformas` (
   `enlace` varchar(255) NOT NULL,
   `tipo_contenido` varchar(255) DEFAULT NULL,
   `disponibilidad_ar` tinyint(1) NOT NULL,
-  `precio` varchar(500) NOT NULL
+  `precio` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -66,9 +66,9 @@ CREATE TABLE `plataformas` (
 --
 
 INSERT INTO `plataformas` (`id_plataforma`, `nombre`, `enlace`, `tipo_contenido`, `disponibilidad_ar`, `precio`) VALUES
-(2, 'Netflix', 'www.netflix.com', 'Series, Peliculas, Documentales', 1, '5000'),
-(3, 'HBO Max', 'https://www.hbomax.com/', 'Series, Peliculas, Documentales', 1, '4000'),
-(4, 'Amazon Prime Video', 'https://www.primevideo.com', 'Series, Peliculas, Documentales', 1, '4500');
+(2, 'Netflix', 'www.netflix.com', 'Series, Peliculas, Documentales', 1, 5000),
+(3, 'HBO Max', 'https://www.hbomax.com/', 'Series, Peliculas, Documentales', 1, 4000),
+(4, 'Amazon Prime Video', 'https://www.primevideo.com', 'Series, Peliculas, Documentales', 1, 4500);
 
 --
 -- Índices para tablas volcadas
