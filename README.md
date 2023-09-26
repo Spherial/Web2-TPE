@@ -12,4 +12,4 @@ Se pueden consultar datos de las propias películas, asi como de las plataformas
 
 Diagrama Entidad-Relacion
 
-![](images/der.png)
+
