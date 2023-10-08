@@ -1,9 +1,10 @@
 <?php
 //REQUIRES
-require_once './app/controllers/fruit.controller.php';
-require_once './app/views/fruit.view.php';
 
-$fruitController = new FruitController();
+require_once './app/controllers/movie.controller.php';
+
+
+$MovieController = new MovieController();
 
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -24,15 +25,8 @@ $params = explode('/', $action);
 // Determina que camino seguir según la acción
 switch ($params[0]) {
     case 'home': 
-        $fruitController->showHome();
+        $MovieController->showHome();
         break;
-    case 'register':
-        $fruitController->showRegister();
-        break;
-    case 'registerUser':
-        $fruitController->registerUser();
-        break;
-   
     default: 
         echo('404 Page not found'); //Placeholder de error
         break;
