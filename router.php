@@ -27,6 +27,9 @@ switch ($params[0]) {
     case 'home': 
         $MovieController->showHome();
         break;
+    case 'peliculas':
+        $MovieController->showAllMovies();
+        break;
     default: 
         echo('404 Page not found'); //Placeholder de error
         break;
