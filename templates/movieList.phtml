@@ -2,6 +2,6 @@
 <a href="#" class="list-group-item list-group-item-action active">Peliculas</a>
 <?php foreach ($movies as $movie):?>
 
-        <a href="#" class="list-group-item list-group-item-action"><?=$movie->titulo?></a>
+        <a href="<?=BASE_URL?>peliculas/<?=$movie->id_pelicula?>" class="list-group-item list-group-item-action"><?=$movie->titulo?></a>
        <?php endforeach?> 
 </div>

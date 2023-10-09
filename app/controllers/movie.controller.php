@@ -23,4 +23,13 @@ class MovieController{
         $movies = $this->model->getAllMovies();
         $this->view->showMovieList($movies);
     }
+
+    public function showMovieDetail($movie_id){
+        $titulo = "Detalle";
+        $subtitulo = "Detalles de la pelicula";
+        include_once './templates/header.phtml';
+        $details = $this->model->getMovieDetail($movie_id);
+        require_once './templates/movieDetail.phtml';
+        
+    }
 }
