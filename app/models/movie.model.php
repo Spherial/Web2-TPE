@@ -26,4 +26,17 @@ class MovieModel{
 
         return $details;
     }
+
+    public function getAllPlatforms(){
+        $query = $this->db->prepare("SELECT id_plataforma,nombre FROM plataformas");
+        $query->execute();
+        $platforms = $query->fetchAll(PDO::FETCH_OBJ);
+        return $platforms;
+    }
+
+    public function POSTmovie($titulo,$sinopsis,$director,$fecha,$cast,$plataforma){
+        $query = $this->db->prepare("INSERT INTO `peliculas`(`titulo`, `sinopsis`, `director`, `año_lanzamiento`, `cast`, `plataforma_id`) VALUES (?,?,?,?,?,?)");
+        $query->execute([$titulo,$sinopsis,$director,$fecha,$cast,$plataforma]);
+        return $this->db->lastInsertId();
+    }
 }

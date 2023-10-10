@@ -34,9 +34,13 @@ switch ($params[0]) {
         else{
             $MovieController->showAllMovies();
         }
-            
-          
         break;
+    case 'agregarPelicula':
+        $MovieController->formAddMovie();
+        break;
+    case 'addMovie':
+        $MovieController->addMovie();
+        break;   
     default: 
         echo('404 Page not found'); //Placeholder de error
         break;
