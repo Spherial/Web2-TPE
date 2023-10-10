@@ -2,16 +2,20 @@
 
 require_once './app/views/movie.view.php';
 require_once './app/models/movie.model.php';
+require_once './helpers/error.helper.php';
 
 class MovieController{
 
     private $view;
     private $model;
 
+    private $errorHelper;
+
 
     public function __construct(){
         $this->view = new MovieView();
         $this->model = new MovieModel();
+        $this->errorHelper = new ErrorHelper();
     }
 
 
@@ -56,11 +60,12 @@ class MovieController{
                 header("Location:".BASE_URL."peliculas");
             }
             else{
-                echo "ERROR";
+                $this->errorHelper->showError("Ocurrio un error al realizarse la insercion");
             }
         }
         else{
-            echo "ERROR";
+            $this->errorHelper->showError("Deben rellenarse todos los campos del formulario");
+            include_once './templates/formAddPelicula.phtml';
         }
     }
 

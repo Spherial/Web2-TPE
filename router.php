@@ -2,9 +2,11 @@
 //REQUIRES
 
 require_once './app/controllers/movie.controller.php';
+require_once './helpers/error.helper.php';
 
 
 $MovieController = new MovieController();
+$ErrorHelper = new ErrorHelper();
 
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -42,7 +44,7 @@ switch ($params[0]) {
         $MovieController->addMovie();
         break;   
     default: 
-        echo('404 Page not found'); //Placeholder de error
+        $ErrorHelper->showError("404 - Recurso no encontrado"); //Placeholder de error
         break;
 }
 
