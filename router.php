@@ -38,11 +38,36 @@ switch ($params[0]) {
         }
         break;
     case 'agregarPelicula':
-        $MovieController->formAddMovie();
+        $MovieController->movieForm();
         break;
     case 'addMovie':
         $MovieController->addMovie();
         break;   
+    case 'eliminarPelicula':
+        if (isset($params[1]) && !empty($params[1])){
+            $MovieController->removeMovie($params[1]);
+        }
+        else{
+            $ErrorHelper->showError("Se debe proveer una pelicula para borrar");
+        }
+        break;
+
+    case 'editarPelicula':
+        if (isset($params[1]) && !empty($params[1])){
+            $MovieController->editMovie($params[1]);
+        }
+        else{
+            $ErrorHelper->showError("Se debe proveer una pelicula para editar");
+        }
+        break;
+    case 'updateMovie':
+        if (isset($params[1]) && !empty($params[1])){
+            $MovieController->updateMovie($params[1]);
+        }
+        else{
+            $ErrorHelper->showError("Se debe proveer una pelicula para editar");
+        }
+        break;
     default: 
         $ErrorHelper->showError("404 - Recurso no encontrado"); //Placeholder de error
         break;

@@ -29,20 +29,28 @@ class MovieController{
     }
 
     public function showMovieDetail($movie_id){
-        $titulo = "Detalle";
-        $subtitulo = "Detalles de la pelicula";
-        include_once './templates/header.phtml';
-        $details = $this->model->getMovieDetail($movie_id);
-        require_once './templates/movieDetail.phtml';
+        if ($this->validateData([$movie_id])){
+            $titulo = "Detalle";
+            $subtitulo = "Detalles de la pelicula";
+            include_once './templates/header.phtml';
+            $details = $this->model->getMovieDetail($movie_id);
+            if ($details){
+                require_once './templates/movieDetail.phtml';
+            }
+            else{
+                $this->errorHelper->showError("Pelicula no encontrada.");
+            }
+            
+        }
+     
         
     }
 
-    public function formAddMovie(){
-        $titulo = "Agregar Pelicula";
-        $subtitulo = "Ingrese los datos";
+    public function movieForm($editing = null,$movie = null){
+       
         $platforms = $this->model->getAllPlatforms();
         include_once './templates/header.phtml';
-        include_once './templates/formAddPelicula.phtml';
+        include_once './templates/formPelicula.phtml';
         
     }
 
@@ -65,7 +73,63 @@ class MovieController{
         }
         else{
             $this->errorHelper->showError("Deben rellenarse todos los campos del formulario");
-            include_once './templates/formAddPelicula.phtml';
+            $platforms = $this->model->getAllPlatforms();
+            include_once './templates/formPelicula.phtml';
+        }
+    }
+
+    public function removeMovie($movie_id){
+        if ($this->validateData([$movie_id])){
+            $affectedRows = $this->model->DELETEmovie($movie_id);
+
+            if ($affectedRows > 0 ){
+                header("Location:".BASE_URL."peliculas");
+            }
+            else{
+                $this->errorHelper->showError("Ocurrio un error al intentar eliminar");
+            }
+        }
+    }
+
+    public function editMovie($movie_id){
+        $movie = $this->model->getMovieById($movie_id);
+        if ($movie){
+            $this->movieForm(true,$movie);
+            var_dump($movie);
+        }
+        else{
+            $this->errorHelper->showError("Pelicula no encontrada.");
+        }
+        
+    }
+
+    public function updateMovie($id){
+        if (!$_POST){
+            $this->errorHelper->showError("Falta informacion para actualizar datos.");
+            die();
+        }
+
+
+        if ($this->validateData($_POST)){
+            $titulo = $_POST["titulo"];
+            $sinopsis = $_POST["sinopsis"];
+            $director = $_POST["director"];
+            $fecha = $_POST["fecha"];
+            $cast = $_POST["cast"];
+            $plataforma = $_POST["plataforma"];
+
+            $affectedRows = $this->model->PUTmovie($id,$titulo,$sinopsis,$director,$fecha,$cast,$plataforma);
+
+            if ($affectedRows > 0){
+                header("Location:".BASE_URL."peliculas");
+            }
+            else{
+                $this->errorHelper->showError("Ocurrio un error al editar");
+            }
+
+        }
+        else{
+            $this->errorHelper->showError("Debe rellenar todos los campos");
         }
     }
 

@@ -3,8 +3,8 @@
 <?php foreach ($movies as $movie):?>
         <div class="d-flex justify-content-between align-items-center">
                 <a href="<?=BASE_URL?>peliculas/<?=$movie->id_pelicula?>" class="list-group-item list-group-item-action"><?=$movie->titulo?></a>
-                <button class="btn btn-warning">Editar</button>
-                <button class="btn btn-danger">Eliminar</button>
+                <a href="<?=BASE_URL?>editarPelicula/<?=$movie->id_pelicula?>"><button class="btn btn-warning">Editar</button></a>
+                <a href="<?=BASE_URL?>eliminarPelicula/<?=$movie->id_pelicula?>"><button class="btn btn-danger">Eliminar</button></a>
         </div>
        <?php endforeach?> 
 </div>
