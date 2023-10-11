@@ -1,121 +1,38 @@
-<?php if ($editing):?>
-
-    <div class="container mt-5">
-    <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <h2 class="text-center">Editar Pelicula</h2>
-            <form action="<?=BASE_URL?>updateMovie/<?=$movie->id_pelicula?>" method="POST">
-
-                <div class="form-group">
-                    <label for="titulo">Titulo</label>
-                    <input type="text" class="form-control" name="titulo" value="<?=$movie->titulo?>">
-                </div>
-
-
-                <div class="form-group">
-                    <label for="sinopsis">Sinopsis:</label>
-                    <input type="text" class="form-control" name="sinopsis" value="<?=$movie->sinopsis?>">
-                </div>
-
-
-                <div class="form-group">
-                    <label for="director">Director:</label>
-                    <input type="text" class="form-control" name="director" value="<?=$movie->director?>">
-                </div>
-
-                <div class="form-group">
-                    <label for="fecha">Fecha de lanzamiento:</label>
-                    <input type="date" class="form-control" name="fecha" value="<?=$movie->año_lanzamiento?>">
-                </div>
-
-
-                <div class="form-group">
-                    <label for="cast">Cast:</label>
-                    <input type="text" class="form-control" name="cast" value="<?=$movie->cast?>">
-                </div>
-
-                <div class="form-group">
-                    <label for="plataforma">Plataforma donde se transmite:</label>
-                    <select class="form-control" name="plataforma">
-
-
-                        <?php foreach ($platforms as $platform): ?>
-
-                            <option value="<?= $platform->id_plataforma ?>"><?= $platform->nombre ?></option>
-
-                        <?php endforeach ?>
-
-                    </select>
-                </div>
-
-
-
-                <!-- Botón de envío -->
-                <button type="submit" class="btn btn-primary">Editar</button>
-            </form>
-        </div>
-    </div>
-    <p>EDITABLE</p>
-</div>
-
-<?php else:?>
-
-
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <h2 class="text-center">Nueva Pelicula</h2>
-            <form action="addMovie" method="POST">
-
+            <h2 class="text-center"><?= $editing ? 'Editar Pelicula' : 'Nueva Pelicula' ?></h2>
+            <form action="<?= $editing ? BASE_URL . 'updateMovie/' . $movie->id_pelicula : BASE_URL . 'addMovie' ?>" method="POST">
                 <div class="form-group">
                     <label for="titulo">Titulo</label>
-                    <input type="text" class="form-control" name="titulo">
+                    <input type="text" class="form-control" name="titulo" value="<?= $editing ? $movie->titulo : '' ?>">
                 </div>
-
-
                 <div class="form-group">
                     <label for="sinopsis">Sinopsis:</label>
-                    <input type="text" class="form-control" name="sinopsis">
+                    <input type="text" class="form-control" name="sinopsis" value="<?= $editing ? $movie->sinopsis : '' ?>">
                 </div>
-
-
                 <div class="form-group">
                     <label for="director">Director:</label>
-                    <input type="text" class="form-control" name="director">
+                    <input type="text" class="form-control" name="director" value="<?= $editing ? $movie->director : '' ?>">
                 </div>
-
                 <div class="form-group">
                     <label for="fecha">Fecha de lanzamiento:</label>
-                    <input type="date" class="form-control" name="fecha">
+                    <input type="date" class="form-control" name="fecha" value="<?= $editing ? $movie->año_lanzamiento : '' ?>">
                 </div>
-
-
                 <div class="form-group">
                     <label for="cast">Cast:</label>
-                    <input type="text" class="form-control" name="cast">
+                    <input type="text" class="form-control" name="cast" value="<?= $editing ? $movie->cast : '' ?>">
                 </div>
-
                 <div class="form-group">
                     <label for="plataforma">Plataforma donde se transmite:</label>
                     <select class="form-control" name="plataforma">
-
-
                         <?php foreach ($platforms as $platform): ?>
-
                             <option value="<?= $platform->id_plataforma ?>"><?= $platform->nombre ?></option>
-
                         <?php endforeach ?>
-
                     </select>
                 </div>
-
-
-
-                <!-- Botón de envío -->
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="submit" class="btn btn-primary"><?= $editing ? 'Editar' : 'Enviar' ?></button>
             </form>
         </div>
     </div>
 </div>
-
-<?php endif?>

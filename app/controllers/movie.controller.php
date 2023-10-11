@@ -95,7 +95,7 @@ class MovieController{
         $movie = $this->model->getMovieById($movie_id);
         if ($movie){
             $this->movieForm(true,$movie);
-            var_dump($movie);
+            
         }
         else{
             $this->errorHelper->showError("Pelicula no encontrada.");
