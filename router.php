@@ -2,7 +2,7 @@
 //REQUIRES
 
 require_once './app/controllers/movie.controller.php';
-require_once './helpers/error.helper.php';
+require_once './app/helpers/error.helper.php';
 
 
 $MovieController = new MovieController();
