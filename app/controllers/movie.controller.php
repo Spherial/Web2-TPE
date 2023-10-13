@@ -1,5 +1,5 @@
 <?php
-
+//Merge
 require_once './app/views/movie.view.php';
 require_once './app/models/movie.model.php';
 require_once './app/helpers/error.helper.php';
