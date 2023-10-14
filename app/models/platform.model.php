@@ -8,6 +8,14 @@
             $this->db = new PDO('mysql:host=localhost;'.'dbname=streaming_peliculas;charset=utf8', 'root', '');
         }
 
+        public function getPlatformById($platform_id) {
+            $query = $this->db->prepare("SELECT * FROM plataformas WHERE id_plataforma = ?");
+            $query->execute([$platform_id]);
+            $platform = $query->fetch(PDO::FETCH_OBJ);
+    
+            return $platform;
+        }
+
         public function getPlatformDetails($platform_id) {
             $query = $this->db->prepare("SELECT * FROM plataformas WHERE id_plataforma = ?");
             $query->execute([$platform_id]);
@@ -34,6 +42,12 @@
             $query = $this->db->prepare("INSERT INTO `plataformas`(`nombre`, `enlace`, `tipo_contenido`, `disponibilidad_ar`, `precio`) VALUES (?, ?, ?, ?, ?)");
             $query->execute([$nombre, $enlace, $tipo_contenido, $disponibilidad_ar, $precio]);
             return $this->db->lastInsertId();
+        }
+
+        public function PUTplatform($nombre, $enlace, $tipo_contenido, $disponibilidad_ar, $precio, $platform_id){
+            $query = $this->db->prepare("UPDATE plataformas SET `nombre`= ?,`enlace`= ?,`tipo_contenido`= ? ,`disponibilidad_ar`= ? ,`precio`= ? WHERE id_plataforma = ?");
+            $query->execute([$nombre, $enlace, $tipo_contenido, $disponibilidad_ar, $precio, $platform_id]);
+            return $query->rowCount();
         }
 
         public function DELETEplatform($platform_id){

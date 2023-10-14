@@ -87,14 +87,14 @@ switch ($params[0]) {
             $platformController -> platformForm();
             break;
         case 'addPlatform':
-            $platformController -> addPlatform(); //NO HECHO
+            $platformController -> addPlatform();
             break;
         case 'eliminarPlataforma':
             if (isset($params[1]) && !empty($params[1])) {
-                $platformController->removePlatform($params[1]); //NO HECHO
+                $platformController->removePlatform($params[1]);
             }
             break;
-        case 'editarPlatform':
+        case 'editarPlataforma':
             if (isset($params[1]) && !empty($params[1])){
                 $platformController->editPlatform($params[1]);//NO HECHO
             }
@@ -102,16 +102,16 @@ switch ($params[0]) {
                 $ErrorHelper->showError("Se debe proveer una Plataforma para editar");
             }
             break;
-        case 'updatePlatform':
+        case 'updatePlataforma':
             if (isset($params[1]) && !empty($params[1])){
-                $MovieController->updatePlatform($params[1]);//NO HECHO
+                $platformController->updatePlatform($params[1]);//NO HECHO
             }
             else{
                 $ErrorHelper->showError("Se debe proveer una plataforma para editar");
             }
             break;
     default:
-        $ErrorHelper->showError("404 - Recurso no encontrado"); //Placeholder de error
+        $ErrorHelper->showError("404 - Recurso no encontrado");
         break;
 }
 ?>

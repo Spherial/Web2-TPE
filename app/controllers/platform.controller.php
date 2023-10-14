@@ -97,12 +97,36 @@ class platformController{
             $this->errorHelper->showError("No es posible.");
         }
     }
-    public function editPlatform() {
-    
+    public function editPlatform($platform_id) {
+        $platform = $this->model->getPlatformById($platform_id);
+        if ($platform){
+            $this->platformForm(true,$platform);
+        }
+        else{
+            $this->errorHelper->showError("Plataforma no encontrada.");
+        }
     }
-    public function updatePlatform() {
+    public function updatePlatform($platform_id) {
+        if(isset($_POST['disponibilidad_ar'])) {
+            $disponibilidad_ar = $_POST['disponibilidad_ar'];
+        }
+        else {
+            $disponibilidad_ar = '0';
+        }
 
+        if ($this->validateData($_POST)) {
+            $nombre = $_POST['nombre'];
+            $enlace = $_POST['enlace'];
+            $tipo_contenido = $_POST['tipo_contenido'];
+            $precio = $_POST['precio'];
+            $affectedRows = $this->model->PUTplatform($nombre, $enlace, $tipo_contenido, $disponibilidad_ar, $precio, $platform_id);
+            if ($affectedRows>0) {
+                header("Location:".BASE_URL."plataformas");
+            }
+            else {
+                $this->errorHelper->showError("no se pudo editar la plataforma.");
+            }
+        }
     }
 }
-
 ?>

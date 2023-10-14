@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <h2 class="text-center"><?= $editing ? 'Editar Pelicula' : 'Nueva Pelicula' ?></h2>
-            <form action="<?= $editing ? BASE_URL . 'updatePlatform/' . $platform->id_plataforma : BASE_URL . 'addPlatform' ?>" method="POST">
+            <form action="<?= $editing ? BASE_URL . 'updatePlataforma/' . $platform->id_plataforma : BASE_URL . 'addPlatform' ?>" method="POST">
                 <div class="form-group">
                     <label for="nombre">Nombre</label>
                     <input type="text" class="form-control" name="nombre" value="<?= $editing ? $platform->nombre : '' ?>">
