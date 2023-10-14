@@ -1,6 +1,6 @@
 <?php
 //REQUIRES
-
+require_once './config.php';
 require_once './app/controllers/movie.controller.php';
 require_once './app/controllers/platform.controller.php';
 require_once './app/controllers/auth.controller.php';
