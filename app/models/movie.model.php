@@ -22,7 +22,7 @@ class MovieModel{
         $query->execute([$id]);
         $movie = $query->fetch(PDO::FETCH_OBJ);
 
-        return $movie; 
+        return $movie;
     }
 
 

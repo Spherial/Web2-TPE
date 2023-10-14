@@ -1,20 +1,18 @@
 <div class="container">
-        <h1 class="mt-5">Detalles de la Película</h1>
-        <div class="row mt-4">
-            <div class="col-md-6">
-                <!-- Agrega una imagen de la película -->
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png" alt="Imagen de la Película" class="img-fluid">
-            </div>
-            <div class="col-md-6">
-                <!-- Agrega los detalles de la película -->
-                <h2><?=$details->titulo?></h2>
-                <p><strong>Sinopsis:</strong> <?=$details->sinopsis?></p>
-                <p><strong>Director:</strong> <?=$details->director?></p>
-                <p><strong>Fecha de Lanzamiento:</strong> <?=$details->año_lanzamiento?></p>
-                <p><strong>Cast:</strong> <?=$details->cast?></p>
-                <p><strong>Plataforma:</strong> <?=$details->nombre?></p>
-               
-                <!-- Agrega más detalles según sea necesario -->
-            </div>
+    <h1 class="mt-5">Detalles de la Película</h1>
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <!-- Agrego la portada de la película -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png" alt="Imagen de la Película" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+            <!-- Agrego los detalles de la película -->
+            <h2><?=$details->titulo?></h2>
+            <p><strong>Sinopsis:</strong> <?=$details->sinopsis?></p>
+            <p><strong>Director:</strong> <?=$details->director?></p>
+            <p><strong>Fecha de Lanzamiento:</strong> <?=$details->año_lanzamiento?></p>
+            <p><strong>Cast:</strong> <?=$details->cast?></p>
+            <p><strong>Plataforma:</strong> <a href="<?=BASE_URL?>plataforma/<?=$details->plataforma_id?>" class="list-group-item list-group-item-action"><?=$details->nombre?></a></p>
         </div>
     </div>
+</div>

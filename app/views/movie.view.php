@@ -1,9 +1,6 @@
 <?php
 
 class MovieView{
-
-
-
     public function renderHome(){
         $titulo = "StreamingNet";
         $subtitulo = "Busque su serie o pelicula";

@@ -2,10 +2,12 @@
 //REQUIRES
 
 require_once './app/controllers/movie.controller.php';
-require_once './app/helpers/error.helper.php';
+require_once './app/controllers/platform.controller.php';
+require_once './helpers/error.helper.php';
 
 
 $MovieController = new MovieController();
+$platformController = new platformController();
 $ErrorHelper = new ErrorHelper();
 
 
@@ -26,7 +28,7 @@ $params = explode('/', $action);
 
 // Determina que camino seguir según la acción
 switch ($params[0]) {
-    case 'home': 
+    case 'home':
         $MovieController->showHome();
         break;
     case 'peliculas':
@@ -42,7 +44,7 @@ switch ($params[0]) {
         break;
     case 'addMovie':
         $MovieController->addMovie();
-        break;   
+        break;
     case 'eliminarPelicula':
         if (isset($params[1]) && !empty($params[1])){
             $MovieController->removeMovie($params[1]);
@@ -68,10 +70,52 @@ switch ($params[0]) {
             $ErrorHelper->showError("Se debe proveer una pelicula para editar");
         }
         break;
-    default: 
+
+
+        case 'plataformas':
+            if (isset($params[1]) && !empty($params[1])){
+                $ErrorHelper->showError("No hay plataformas cargadas");
+            }
+            else {
+                $platformController -> showAllPlatforms(); break;
+            }
+            break;
+        case 'plataforma':
+            $platformController -> showAllMoviesPlatform($params[1]);
+            break;
+        case 'agregarPlataforma':
+            $platformController -> platformForm(); //NO HECHO
+            break;
+        case 'addPlatform':
+            $platformController -> addPlatform(); //NO HECHO
+            break;
+        case 'eliminarPlatform':
+            if ($platformController->platformAvailableToRemove()){//NO HECHO
+                $platformController->removePlatform($params[1]); //NO HECHO
+            }
+            else{
+                $ErrorHelper->showError("No se puede eliminar plataformas que contengan peliculas.");
+            }
+            break;
+    
+        case 'editarPlatform':
+            if (isset($params[1]) && !empty($params[1])){
+                $platformController->editPlatform($params[1]);//NO HECHO
+            }
+            else{
+                $ErrorHelper->showError("Se debe proveer una Plataforma para editar");
+            }
+            break;
+        case 'updatePlatform':
+            if (isset($params[1]) && !empty($params[1])){
+                $MovieController->updatePlatform($params[1]);//NO HECHO
+            }
+            else{
+                $ErrorHelper->showError("Se debe proveer una plataforma para editar");
+            }
+            break;
+    default:
         $ErrorHelper->showError("404 - Recurso no encontrado"); //Placeholder de error
         break;
 }
-
-
 ?>
