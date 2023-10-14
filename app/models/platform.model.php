@@ -29,5 +29,17 @@
     
             return $platforms;
         }
+
+        public function POSTplatform($nombre, $enlace, $tipo_contenido, $disponibilidad_ar, $precio){
+            $query = $this->db->prepare("INSERT INTO `plataformas`(`nombre`, `enlace`, `tipo_contenido`, `disponibilidad_ar`, `precio`) VALUES (?, ?, ?, ?, ?)");
+            $query->execute([$nombre, $enlace, $tipo_contenido, $disponibilidad_ar, $precio]);
+            return $this->db->lastInsertId();
+        }
+
+        public function DELETEplatform($platform_id){
+            $query = $this->db->prepare("DELETE FROM `plataformas` WHERE id_plataforma = ? ");
+            $query->execute([$platform_id]);
+            return $query->rowCount();
+        }
     }
 ?>

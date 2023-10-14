@@ -84,20 +84,16 @@ switch ($params[0]) {
             $platformController -> showAllMoviesPlatform($params[1]);
             break;
         case 'agregarPlataforma':
-            $platformController -> platformForm(); //NO HECHO
+            $platformController -> platformForm();
             break;
         case 'addPlatform':
             $platformController -> addPlatform(); //NO HECHO
             break;
-        case 'eliminarPlatform':
-            if ($platformController->platformAvailableToRemove()){//NO HECHO
+        case 'eliminarPlataforma':
+            if (isset($params[1]) && !empty($params[1])) {
                 $platformController->removePlatform($params[1]); //NO HECHO
             }
-            else{
-                $ErrorHelper->showError("No se puede eliminar plataformas que contengan peliculas.");
-            }
             break;
-    
         case 'editarPlatform':
             if (isset($params[1]) && !empty($params[1])){
                 $platformController->editPlatform($params[1]);//NO HECHO
