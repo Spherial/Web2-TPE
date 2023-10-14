@@ -2,6 +2,8 @@
 require_once './app/models/auth.model.php';
 require_once './app/views/auth.view.php';
 require_once './helpers/error.helper.php';
+
+//Merge reciente
     class AuthController{
         private $model;
         private $view;
