@@ -1,12 +1,17 @@
 <?php
 
 class MovieView{
+
+    //Renderiza el home
     public function renderHome(){
         $titulo = "StreamingNet";
         $subtitulo = "Busque su serie o pelicula";
         include_once './templates/header.phtml';
     }
 
+
+
+    //Muestra la lista de todas las peliculas
     public function showMovieList($movies){
         $titulo = "Peliculas";
         $subtitulo = "Un listado de todas las peliculas";

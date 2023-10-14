@@ -15,7 +15,7 @@
 
         public function showPlatformInfo($platform){
             include_once './templates/platformInfo.phtml';
-            include_once './templates/MoviesPlatformList.phtml';//NO HECHO
+            include_once './templates/MoviesPlatformList.phtml';
         }
     }
 ?>

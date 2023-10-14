@@ -3,11 +3,13 @@
 
 require_once './app/controllers/movie.controller.php';
 require_once './app/controllers/platform.controller.php';
+require_once './app/controllers/auth.controller.php';
 require_once './helpers/error.helper.php';
 
 
 $MovieController = new MovieController();
 $platformController = new platformController();
+$authController = new AuthController();
 $ErrorHelper = new ErrorHelper();
 
 
@@ -28,6 +30,12 @@ $params = explode('/', $action);
 
 // Determina que camino seguir según la acción
 switch ($params[0]) {
+    case 'auth':
+        $authController->formLogin();
+        break;
+    case 'login':
+        $authController->login();
+        break;
     case 'home':
         $MovieController->showHome();
         break;

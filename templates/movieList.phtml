@@ -1,14 +1,32 @@
+<?php session_start()?>
 <div class="list-group col-md-6 mx-auto">
         <a href="#" class="list-group-item list-group-item-action active">Peliculas</a>
         <?php foreach ($movies as $movie):?>
                 <div class="d-flex justify-content-between align-items-center">
                         <a href="<?=BASE_URL?>peliculas/<?=$movie->id_pelicula?>" class="list-group-item list-group-item-action"><?=$movie->titulo?></a>
-                        <a href="<?=BASE_URL?>editarPelicula/<?=$movie->id_pelicula?>"><button class="btn btn-warning">Editar</button></a>
-                        <a href="<?=BASE_URL?>eliminarPelicula/<?=$movie->id_pelicula?>"><button class="btn btn-danger">Eliminar</button></a>
+                        <a href="<?=BASE_URL?>editarPelicula/<?=$movie->id_pelicula?>">
+                        <?php if (isset($_SESSION["id"])): ?>
+                        <button class="btn btn-warning">Editar</button>
+                        <?php endif?>
+                        </a>
+
+                        <?php if (isset($_SESSION["id"])): ?>
+                        <a href="<?=BASE_URL?>eliminarPelicula/<?=$movie->id_pelicula?>">
+                        <button class="btn btn-danger">Eliminar</button>
+                        <?php endif?>
+                        </a>
+
+
                 </div>
         <?php endforeach?>
 </div>
 
-<div class="text-center">
-        <a href="<?=BASE_URL?>agregarPelicula"><button type="button" class="btn btn-outline-primary mx-auto">Agregar nueva pelicula</button></a>
-</div>
+
+<?php if (isset($_SESSION["id"])):?>
+        <div class="text-center">
+                <a href="<?=BASE_URL?>agregarPelicula"><button type="button" class="btn btn-outline-primary mx-auto">Agregar nueva pelicula</button></a>
+        </div>
+<?php endif?>
+
+
+<!-- Los botones de edicion solo se muestran si el usuario esta logueado (Si existe una id del $_SESSION) -->

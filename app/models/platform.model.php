@@ -8,6 +8,8 @@
             $this->db = new PDO('mysql:host=localhost;'.'dbname=streaming_peliculas;charset=utf8', 'root', '');
         }
 
+
+        //Obtiene una plataforma segun una ID
         public function getPlatformById($platform_id) {
             $query = $this->db->prepare("SELECT * FROM plataformas WHERE id_plataforma = ?");
             $query->execute([$platform_id]);
@@ -16,6 +18,9 @@
             return $platform;
         }
 
+
+
+        //Obtiene los detalles de una plataforma
         public function getPlatformDetails($platform_id) {
             $query = $this->db->prepare("SELECT * FROM plataformas WHERE id_plataforma = ?");
             $query->execute([$platform_id]);
@@ -23,6 +28,9 @@
             return $details;
         }
 
+
+
+        //Obtiene todas las peliculas pertenecientes a una plataforma dada
         public function getAllMoviesByPlatform($platform_id) {
             $query = $this->db->prepare("SELECT * FROM peliculas WHERE plataforma_id = ?");
             $query->execute([$platform_id]);
@@ -30,6 +38,9 @@
             return $movies;
         }
 
+
+
+        //Obtiene todas las plataformas
         public function getAllPlatforms(){
             $query = $this->db->prepare("SELECT id_plataforma, nombre FROM plataformas");
             $query->execute();

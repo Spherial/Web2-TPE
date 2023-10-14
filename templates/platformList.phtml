@@ -1,14 +1,32 @@
+<?php session_start()?>
 <div class="list-group col-md-6 mx-auto">
         <a href="#" class="list-group-item list-group-item-action active">Plataformas</a>
         <?php foreach ($platforms as $platform):?>
                 <div class="d-flex justify-content-between align-items-center">
                         <a href="<?=BASE_URL?>plataforma/<?=$platform->id_plataforma?>" class="list-group-item list-group-item-action"><?=$platform->nombre?></a>
-                        <a href="<?=BASE_URL?>editarPlataforma/<?=$platform->id_plataforma?>"><button class="btn btn-warning">Editar</button></a>
-                        <a href="<?=BASE_URL?>eliminarPlataforma/<?=$platform->id_plataforma?>"><button class="btn btn-danger">Eliminar</button></a>
+                        <?php if (isset($_SESSION["id"])):?>
+                                <a href="<?=BASE_URL?>editarPlataforma/<?=$platform->id_plataforma?>">
+                                <button class="btn btn-warning">Editar</button>
+                                </a>
+                        <?php endif?>
+                        
+
+                        <?php if (isset($_SESSION["id"])):?>
+                                <a href="<?=BASE_URL?>eliminarPlataforma/<?=$platform->id_plataforma?>"> 
+                                <button class="btn btn-danger">Eliminar</button>
+                                </a>
+                        <?php endif?>
+                        
                 </div>
         <?php endforeach?>
 </div>
 
+
+<?php if (isset($_SESSION["id"])):?>
 <div class="text-center">
         <a href="<?=BASE_URL?>agregarPlataforma"><button type="button" class="btn btn-outline-primary mx-auto">Agregar servicio de Striming</button></a>
 </div>
+<?php endif?>
+
+
+<!-- Los botones de edicion solo se muestran si el usuario esta logueado (Si existe una id del $_SESSION) -->

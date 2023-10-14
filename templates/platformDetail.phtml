@@ -14,7 +14,7 @@
             <p><strong>Precio: $</strong> <?=$details->precio?></p>
             <h1>CATÁLOGO DISPONIBLE:</h1>
             
-            <!-- Agrega un bucle para mostrar las películas -->
+            <!-- Muestra todas las peliculas de esta plataforma -->
             <?php foreach ($movies as $movie): ?>
                 <div class="movie-details">
                     <a href="<?=BASE_URL?>peliculas/<?=$movie->id_pelicula?>" class="list-group-item list-group-item-action"><?=$movie->titulo?></a>
@@ -23,3 +23,5 @@
         </div>
     </div>
 </div>
+
+

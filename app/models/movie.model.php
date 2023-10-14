@@ -17,6 +17,9 @@ class MovieModel{
         return $movies;
     }
 
+
+
+    //Obtiene una pelicula segun una ID
     public function getMovieById($id){
         $query = $this->db->prepare("SELECT * FROM peliculas WHERE id_pelicula = ?");
         $query->execute([$id]);
