@@ -115,7 +115,7 @@ class platformController{
         }
 
         if ($this->validateData($_POST)) {
-            $nombre = $_POST['nombre'];
+            $nombre = $_POST['nombre']; //mergeado
             $enlace = $_POST['enlace'];
             $tipo_contenido = $_POST['tipo_contenido'];
             $precio = $_POST['precio'];
