@@ -7,7 +7,7 @@ require_once './app/controllers/auth.controller.php';
 require_once './helpers/error.helper.php';
 
 // Inicia la sesión aquí
-//session_start();
+session_start();
 
 $MovieController = new MovieController();
 $platformController = new platformController();

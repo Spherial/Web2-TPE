@@ -49,8 +49,8 @@ require_once './helpers/error.helper.php';
             }
         }
         public function logout() {
-            session_start();
+            //no hago session_start() porque el router se encarga de hacerlo.
             session_destroy();
-            $this->view->renderLoginForm();
+            header("Location:".BASE_URL."home");
         }
     }
