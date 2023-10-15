@@ -92,7 +92,8 @@ class platformController{
             $enlace = $_POST['enlace'];
             $tipo_contenido = $_POST['tipo_contenido'];
             $precio = $_POST['precio'];
-            $id_nueva = $this->model->POSTplatform($nombre, $enlace, $tipo_contenido, $disponibilidad_ar, $precio);
+            $link_logo = $_POST['link_logo'];
+            $id_nueva = $this->model->POSTplatform($nombre, $enlace, $tipo_contenido, $disponibilidad_ar, $precio,$link_logo);
             if ($id_nueva) {
                 header("Location:".BASE_URL."plataformas");
             }
@@ -149,7 +150,8 @@ class platformController{
             $enlace = $_POST['enlace'];
             $tipo_contenido = $_POST['tipo_contenido'];
             $precio = $_POST['precio'];
-            $affectedRows = $this->model->PUTplatform($nombre, $enlace, $tipo_contenido, $disponibilidad_ar, $precio, $platform_id);
+            $link_logo = $_POST['link_logo'];
+            $affectedRows = $this->model->PUTplatform($nombre, $enlace, $tipo_contenido, $disponibilidad_ar, $precio, $platform_id,$link_logo);
             if ($affectedRows>0) {
                 header("Location:".BASE_URL."plataformas");
             }
