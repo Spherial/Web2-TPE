@@ -7,6 +7,7 @@ class MovieView{
         $titulo = "StreamingNet";
         $subtitulo = "Busque su serie o pelicula";
         include_once './templates/header.phtml';
+        include_once './templates/home.phtml';
     }
 
 

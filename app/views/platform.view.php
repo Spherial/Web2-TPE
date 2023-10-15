@@ -4,6 +4,7 @@
             $titulo = "StreamingNet";
             $subtitulo = "Busque su plataforma preferida";
             include_once './templates/header.phtml';
+            include_once './templates/home.phtml';
         }
     
         public function showPlatformList($platforms){
