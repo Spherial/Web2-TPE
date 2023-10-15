@@ -33,6 +33,9 @@ switch ($params[0]) {
     case 'auth':
         $authController->formLogin();
         break;
+    case 'logout':
+        $authController->session_destroy();
+        break;
     case 'login':
         $authController->login();
         break;

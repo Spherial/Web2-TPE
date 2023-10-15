@@ -1,3 +1,4 @@
+<?php session_start()?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,13 +20,21 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="<?=BASE_URL?>home">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="<?=BASE_URL?>peliculas">Peliculas</a>
-                    <a class="nav-item nav-link" href="<?=BASE_URL?>plataformas">Plataformas</a>
-                    <a class="nav-item nav-link" href="#">About</a> <!-- Pendiente -->
-                    <a class="nav-item nav-link" href="<?=BASE_URL?>auth">Iniciar Sesion</a>
-                </div>
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="<?=BASE_URL?>home">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="<?=BASE_URL?>peliculas">Peliculas</a>
+                <a class="nav-item nav-link" href="<?=BASE_URL?>plataformas">Plataformas</a>
+                <a class="nav-item nav-link" href="#">About</a> <!-- Pendiente -->
+            </div>
+
+            <div class="ml-auto">
+                <!-- Condicion, si el usuario no inicio sesion "iniciar sesion" y si lo hizo "cerrar sesion" -->
+                <?php if (isset($_SESSION["id"])): ?>
+                    <a class="nav-item nav-link btn btn-danger rounded" href="<?=BASE_URL?>auth">Cerrar Sesión</a>
+                <?php else: ?>
+                    <a class="nav-item nav-link btn btn-success rounded" href="<?=BASE_URL?>logout">Iniciar Sesión</a>
+                <?php endif ?>
+            </div>
             </div>
         </nav>
     </header>
