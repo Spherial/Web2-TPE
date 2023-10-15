@@ -69,10 +69,14 @@ CREATE TABLE `plataformas` (
 --
 
 INSERT INTO `plataformas` (`id_plataforma`, `nombre`, `enlace`, `tipo_contenido`, `disponibilidad_ar`, `precio`) VALUES
-(2, 'Netflix', 'www.netflix.com', 'Series, Peliculas, Documentales', 1, 5000),
-(3, 'HBO Max', 'https://www.hbomax.com/', 'Series, Peliculas, Documentales', 1, 4000),
-(4, 'Amazon Prime Video', 'https://www.primevideo.com', 'Series, Peliculas, Documentales', 1, 4500),
-(5, 'Disney +', 'https://www.disneyplus.com/es-ar', 'Familiar', 1, 4000);
+(1, 'Netflix', 'https://www.netflix.com', 'Series, Peliculas, Documentales y Juegos', 1, 3990.24),
+(2, 'HBO Max', 'https://www.hbomax.com/', 'Series y Peliculas', 1, 1216.0),
+(3, 'Amazon Prime Video', 'https://www.primevideo.com', 'Series, Peliculas y Documentales', 1, 1390.0),
+(4, 'Star+', 'https://www.starplus.com', 'Series, Peliculas, Documentales y Deporte', 1, 1749.0),
+(5, 'Disney+', 'https://www.disneyplus.com', 'Series, Peliculas y Documentales', 1, 799.0),
+(6, 'paramount+', 'https://www.paramountplus.com', 'Series, Peliculas y Documentales', 1, 318.0),
+(7, 'MUBI', 'https://mubi.com', 'Peliculas y Documentales', 1, 599.0),
+(8, 'AppleTV', 'https://appleTV.com', 'Series, Peliculas y Documentales', 1, 8750.0);
 
 -- --------------------------------------------------------
 

@@ -1,4 +1,3 @@
-<?php session_start()?>
 <div class="list-group col-md-6 mx-auto">
         <a href="#" class="list-group-item list-group-item-action active">Plataformas</a>
         <?php foreach ($platforms as $platform):?>
@@ -12,7 +11,7 @@
                         
 
                         <?php if (isset($_SESSION["id"])):?>
-                                <a href="<?=BASE_URL?>eliminarPlataforma/<?=$platform->id_plataforma?>"> 
+                                <a href="<?=BASE_URL?>eliminarPlataforma/<?=$platform->id_plataforma?>">
                                 <button class="btn btn-danger">Eliminar</button>
                                 </a>
                         <?php endif?>

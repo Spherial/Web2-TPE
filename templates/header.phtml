@@ -1,4 +1,4 @@
-<?php session_start()?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,9 +30,9 @@
             <div class="ml-auto">
                 <!-- Condicion, si el usuario no inicio sesion "iniciar sesion" y si lo hizo "cerrar sesion" -->
                 <?php if (isset($_SESSION["id"])): ?>
-                    <a class="nav-item nav-link btn btn-danger rounded" href="<?=BASE_URL?>auth">Cerrar Sesión</a>
+                    <a class="nav-item nav-link btn btn-danger rounded" href="<?=BASE_URL?>logout">Cerrar Sesión</a>
                 <?php else: ?>
-                    <a class="nav-item nav-link btn btn-success rounded" href="<?=BASE_URL?>logout">Iniciar Sesión</a>
+                    <a class="nav-item nav-link btn btn-success rounded" href="<?=BASE_URL?>auth">Iniciar Sesión</a>
                 <?php endif ?>
             </div>
             </div>

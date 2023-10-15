@@ -47,7 +47,10 @@ require_once './helpers/error.helper.php';
             else{
                 $this->errorHelper->showError("Debe rellenar todos los campos");
             }
-
-           
+        }
+        public function logout() {
+            session_start();
+            session_destroy();
+            $this->view->renderLoginForm();
         }
     }

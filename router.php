@@ -6,6 +6,8 @@ require_once './app/controllers/platform.controller.php';
 require_once './app/controllers/auth.controller.php';
 require_once './helpers/error.helper.php';
 
+// Inicia la sesión aquí
+//session_start();
 
 $MovieController = new MovieController();
 $platformController = new platformController();
@@ -34,7 +36,7 @@ switch ($params[0]) {
         $authController->formLogin();
         break;
     case 'logout':
-        $authController->session_destroy();
+        $authController->logout();
         break;
     case 'login':
         $authController->login();
