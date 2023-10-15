@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-10-2023 a las 22:26:00
+-- Tiempo de generación: 16-10-2023 a las 00:30:26
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -34,20 +34,21 @@ CREATE TABLE `peliculas` (
   `director` varchar(255) DEFAULT NULL,
   `año_lanzamiento` date DEFAULT NULL,
   `cast` varchar(500) NOT NULL,
-  `plataforma_id` int(11) DEFAULT NULL
+  `plataforma_id` int(11) DEFAULT NULL,
+  `link_portada` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `peliculas`
 --
 
-INSERT INTO `peliculas` (`id_pelicula`, `titulo`, `sinopsis`, `director`, `año_lanzamiento`, `cast`, `plataforma_id`) VALUES
-(9, 'Better Call Saul', 'Ambientada en 2002, seis años antes de los acontecimientos relatadas en Breaking Bad, Better Call Saul es un spin-off centrado en el personaje de James \'Jimmy\' McGuill (Bob Odenkirk), antes de que asuma la identidad de Saul Goodman, un abogado corrupto con un humor políticamente incorrecto vinculado al mundo criminal que empieza a crear una importante red de contactos en los bajos mundos. La serie narra los acontecimientos que llevan a McGuill a convertirse en Saul antes de trabajar con Walter W', 'Vince Gilligan', '2015-02-08', 'Bob Odenkirk, Sea Reehorn, etc', 2),
-(14, 'Fionna & Cake', ' Fionna y Cake, con la ayuda del antiguo Rey Helado, Simon Petrikov, se embarcan en una aventura de salto multiversal y en un viaje de autodescubrimiento. Mientras tanto, un nuevo y poderoso antagonista, decidido a seguirles la pista y borrarlos de la existencia, acecha en las sombras.', 'Adam Muto', '2023-08-31', 'Cast Fionna', 3),
-(15, 'Breaking Bad', 'Breaking Bad sigue la transformación de Walter White, un profesor de química, en un narcotraficante mientras enfrenta su diagnóstico de cáncer terminal. La serie explora la decadencia moral y las consecuencias de sus decisiones.', 'Vince Gilligan', '2008-01-20', 'Cast BB', 2),
-(16, 'Testeo 2', 'debug', 'Director Generico', '2023-10-10', 'Lorem Ipsum Dolor Sit Amet', 4),
-(17, 'devtest', 'Lorem Ipsum dolor sit amet', 'John Lasseter', '2023-10-15', 'nmnmnmnmnmnmnmnmnmnmnm', 3),
-(18, 'Cars 2', 'sinopsis de cars 2', 'John Lasseter 2 ', '2023-10-07', 'CAST CARS ', 5);
+INSERT INTO `peliculas` (`id_pelicula`, `titulo`, `sinopsis`, `director`, `año_lanzamiento`, `cast`, `plataforma_id`, `link_portada`) VALUES
+(9, 'Better Call Saul', 'Ambientada en 2002, seis años antes de los acontecimientos relatadas en Breaking Bad, Better Call Saul es un spin-off centrado en el personaje de James \'Jimmy\' McGuill (Bob Odenkirk), antes de que asuma la identidad de Saul Goodman, un abogado corrupto con un humor políticamente incorrecto vinculado al mundo criminal que empieza a crear una importante red de contactos en los bajos mundos. La serie narra los acontecimientos que llevan a McGuill a convertirse en Saul antes de trabajar con Walter W', 'Vince Gilligan', '2015-02-08', 'Bob Odenkirk, Sea Reehorn, etc', 2, 'https://www.aceprensa.com/wp-content/uploads/2015/10/60059-1.jpg'),
+(14, 'Fionna & Cake', ' Fionna y Cake, con la ayuda del antiguo Rey Helado, Simon Petrikov, se embarcan en una aventura de salto multiversal y en un viaje de autodescubrimiento. Mientras tanto, un nuevo y poderoso antagonista, decidido a seguirles la pista y borrarlos de la existencia, acecha en las sombras.', 'Adam Muto', '2023-08-31', 'Cast Fionna', 3, 'https://images.justwatch.com/poster/307356966/s332/temporada-1'),
+(15, 'Breaking Bad', 'Breaking Bad sigue la transformación de Walter White, un profesor de química, en un narcotraficante mientras enfrenta su diagnóstico de cáncer terminal. La serie explora la decadencia moral y las consecuencias de sus decisiones.', 'Vince Gilligan', '2008-01-20', 'Cast BB', 2, 'https://es.web.img3.acsta.net/pictures/18/04/04/22/52/3191575.jpg'),
+(18, 'Cars 2', 'sinopsis de cars 2', 'John Lasseter 2 ', '2023-10-07', 'CAST CARS ', 5, 'https://es.web.img2.acsta.net/medias/nmedia/18/82/02/41/19753255.jpg'),
+(21, 'Harry Potter y la Piedra Filosofal', 'El día de su cumpleaños, Harry Potter descubre que es hijo de dos conocidos hechiceros, de los que ha heredado poderes mágicos. Debe asistir a una famosa escuela de magia y hechicería, donde entabla una amistad con dos jóvenes que se convertirán en sus compañeros de aventura.', 'Chris Columbus', '2001-11-29', 'insertar', 4, 'https://es.web.img2.acsta.net/pictures/14/04/30/11/55/592219.jpg'),
+(22, 'Titanic', 'Jack es un joven artista que gana un pasaje para viajar a América en el Titanic, el transatlántico más grande y seguro jamás construido. A bordo del buque conoce a Rose, una chica de clase alta que viaja con su madre y su prometido Cal, un millonario engreído a quien solo interesa el prestigio de la familia de su prometida. Jack y Rose se enamoran a pesar de las trabas que ponen la madre de ella y Cal en su relación. Mientras, el lujoso transatlántico se acerca a un inmenso iceberg.', 'James Cameron', '1998-02-05', 'dsufghuisdfhgiudsfhguisdhuidfsg', 3, 'https://i.pinimg.com/1200x/75/1f/54/751f5482facac19cff49ca5e0a0861cf.jpg');
 
 -- --------------------------------------------------------
 
@@ -61,18 +62,20 @@ CREATE TABLE `plataformas` (
   `enlace` varchar(255) NOT NULL,
   `tipo_contenido` varchar(255) DEFAULT NULL,
   `disponibilidad_ar` tinyint(1) NOT NULL,
-  `precio` double NOT NULL
+  `precio` double NOT NULL,
+  `link_logo` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `plataformas`
 --
 
-INSERT INTO `plataformas` (`id_plataforma`, `nombre`, `enlace`, `tipo_contenido`, `disponibilidad_ar`, `precio`) VALUES
-(2, 'Netflix', 'www.netflix.com', 'Series, Peliculas, Documentales', 1, 5000),
-(3, 'HBO Max', 'https://www.hbomax.com/', 'Series, Peliculas, Documentales', 1, 4000),
-(4, 'Amazon Prime Video', 'https://www.primevideo.com', 'Series, Peliculas, Documentales', 1, 4500),
-(5, 'Disney +', 'https://www.disneyplus.com/es-ar', 'Familiar', 1, 4000);
+INSERT INTO `plataformas` (`id_plataforma`, `nombre`, `enlace`, `tipo_contenido`, `disponibilidad_ar`, `precio`, `link_logo`) VALUES
+(2, 'Netflix', 'www.netflix.com', 'Series, Peliculas, Documentales', 1, 5000, 'https://images.ctfassets.net/y2ske730sjqp/6bhPChRFLRxc17sR8jgKbe/6fa1c6e6f37acdc97ff635cf16ba6fb3/Logos-Readability-Netflix-logo.png'),
+(3, 'HBO Max', 'https://www.hbomax.com/', 'Series, Peliculas, Documentales', 1, 4000, 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png'),
+(4, 'Amazon Prime Video', 'https://www.primevideo.com', 'Series, Peliculas, Documentales', 1, 4500, 'https://static.vecteezy.com/system/resources/previews/019/040/290/original/amazon-prime-video-logo-editorial-free-vector.jpg'),
+(5, 'Disney +', 'https://www.disneyplus.com/es-ar', 'Familiar', 1, 4000, 'https://4.bp.blogspot.com/-wVqCH-lLaCI/W-VfgKBApGI/AAAAAAAAQ_Q/_boURyzLyjMw3B3DJMiayzyuAxVtg0byQCLcBGAs/s1600/disney%252B.jpg'),
+(8, 'Star+', 'https://www.starplus.com', 'Series, Peliculas, Documentales y Deporte', 1, 1749, 'https://static-assets.bamgrid.com/product/starplus/images/share-default.d72cf588f6d06cba22171f5ae44289d3.png');
 
 -- --------------------------------------------------------
 
@@ -124,13 +127,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `peliculas`
 --
 ALTER TABLE `peliculas`
-  MODIFY `id_pelicula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_pelicula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `plataformas`
 --
 ALTER TABLE `plataformas`
-  MODIFY `id_plataforma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_plataforma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
