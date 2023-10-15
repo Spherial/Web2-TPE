@@ -49,15 +49,15 @@
             return $platforms;
         }
 
-        public function POSTplatform($nombre, $enlace, $tipo_contenido, $disponibilidad_ar, $precio){
-            $query = $this->db->prepare("INSERT INTO `plataformas`(`nombre`, `enlace`, `tipo_contenido`, `disponibilidad_ar`, `precio`) VALUES (?, ?, ?, ?, ?)");
-            $query->execute([$nombre, $enlace, $tipo_contenido, $disponibilidad_ar, $precio]);
+        public function POSTplatform($nombre, $enlace, $tipo_contenido, $disponibilidad_ar, $precio,$link_logo){
+            $query = $this->db->prepare("INSERT INTO `plataformas`(`nombre`, `enlace`, `tipo_contenido`, `disponibilidad_ar`, `precio`, `link_logo`) VALUES (?, ?, ?, ?, ?, ?)");
+            $query->execute([$nombre, $enlace, $tipo_contenido, $disponibilidad_ar, $precio,$link_logo]);
             return $this->db->lastInsertId();
         }
 
-        public function PUTplatform($nombre, $enlace, $tipo_contenido, $disponibilidad_ar, $precio, $platform_id){
-            $query = $this->db->prepare("UPDATE plataformas SET `nombre`= ?,`enlace`= ?,`tipo_contenido`= ? ,`disponibilidad_ar`= ? ,`precio`= ? WHERE id_plataforma = ?");
-            $query->execute([$nombre, $enlace, $tipo_contenido, $disponibilidad_ar, $precio, $platform_id]);
+        public function PUTplatform($nombre, $enlace, $tipo_contenido, $disponibilidad_ar, $precio, $platform_id,$link_logo){
+            $query = $this->db->prepare("UPDATE plataformas SET `nombre`= ?,`enlace`= ?,`tipo_contenido`= ? ,`disponibilidad_ar`= ? ,`precio`= ?, `link_logo`= ? WHERE id_plataforma = ?");
+            $query->execute([$nombre, $enlace, $tipo_contenido, $disponibilidad_ar, $precio,$link_logo ,$platform_id]);
             return $query->rowCount();
         }
 
