@@ -79,7 +79,8 @@ class MovieController{
             $fecha = $_POST["fecha"];
             $cast = $_POST["cast"];
             $plataforma = $_POST["plataforma"];
-            $lastId = $this->model->POSTmovie($titulo,$sinopsis,$director,$fecha,$cast,$plataforma);
+            $link_portada = $_POST["link_portada"];
+            $lastId = $this->model->POSTmovie($titulo,$sinopsis,$director,$fecha,$cast,$plataforma,$link_portada);
 
             if ($lastId){
                 header("Location:".BASE_URL."peliculas");
@@ -146,8 +147,9 @@ class MovieController{
             $fecha = $_POST["fecha"];
             $cast = $_POST["cast"];
             $plataforma = $_POST["plataforma"];
+            $link_portada = $_POST["link_portada"];
 
-            $affectedRows = $this->model->PUTmovie($id,$titulo,$sinopsis,$director,$fecha,$cast,$plataforma);
+            $affectedRows = $this->model->PUTmovie($id,$titulo,$sinopsis,$director,$fecha,$cast,$plataforma,$link_portada);
 
             if ($affectedRows > 0){
                 header("Location:".BASE_URL."peliculas");

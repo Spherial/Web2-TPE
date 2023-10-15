@@ -44,15 +44,15 @@ class MovieModel{
         return $platforms;
     }
 
-    public function POSTmovie($titulo,$sinopsis,$director,$fecha,$cast,$plataforma){
-        $query = $this->db->prepare("INSERT INTO `peliculas`(`titulo`, `sinopsis`, `director`, `año_lanzamiento`, `cast`, `plataforma_id`) VALUES (?,?,?,?,?,?)");
-        $query->execute([$titulo,$sinopsis,$director,$fecha,$cast,$plataforma]);
+    public function POSTmovie($titulo,$sinopsis,$director,$fecha,$cast,$plataforma,$link_portada){
+        $query = $this->db->prepare("INSERT INTO `peliculas`(`titulo`, `sinopsis`, `director`, `año_lanzamiento`, `cast`, `plataforma_id`,`link_portada`) VALUES (?,?,?,?,?,?,?)");
+        $query->execute([$titulo,$sinopsis,$director,$fecha,$cast,$plataforma,$link_portada]);
         return $this->db->lastInsertId();
     }
 
-    public function PUTmovie($id,$titulo,$sinopsis,$director,$fecha,$cast,$plataforma){
-        $query = $this->db->prepare("UPDATE peliculas SET `titulo`= ?,`sinopsis`= ?,`director`= ? ,`año_lanzamiento`= ? ,`cast`= ? ,`plataforma_id`= ? WHERE id_pelicula = ?");
-        $query->execute([$titulo,$sinopsis,$director,$fecha,$cast,$plataforma,$id]);
+    public function PUTmovie($id,$titulo,$sinopsis,$director,$fecha,$cast,$plataforma,$link_portada){
+        $query = $this->db->prepare("UPDATE peliculas SET `titulo`= ?,`sinopsis`= ?,`director`= ? ,`año_lanzamiento`= ? ,`cast`= ? ,`plataforma_id`= ?,`link_portada`= ? WHERE id_pelicula = ?");
+        $query->execute([$titulo,$sinopsis,$director,$fecha,$cast,$plataforma,$link_portada,$id]);
         return $query->rowCount();
     }
 

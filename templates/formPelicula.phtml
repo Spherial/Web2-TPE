@@ -31,6 +31,12 @@
                         <?php endforeach ?>
                     </select>
                 </div>
+
+                <div class="form-group">
+                    <label for="link_portada">Enlace de la portada</label>
+                    <input type="text" class="form-control" name="link_portada" value="<?= $editing ? $movie->link_portada : '' ?>">
+                </div>
+
                 <button type="submit" class="btn btn-primary"><?= $editing ? 'Editar' : 'Enviar' ?></button>
             </form>
         </div>
