@@ -17,7 +17,7 @@ class MovieModel{
         return $movies;
     }
     public function getLinksMovies(){
-        $query = $this->db->prepare("SELECT link_portada FROM peliculas");
+        $query = $this->db->prepare("SELECT link_portada, id_pelicula FROM peliculas");
         $query->execute();
         $movies = $query->fetchAll(PDO::FETCH_OBJ);
 

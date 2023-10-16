@@ -3,7 +3,7 @@
 class MovieView{
 
     //Renderiza el home
-    public function renderHome($peliculas){
+    public function renderHome($movies){
         $titulo = "StreamingNet";
         $subtitulo = "Busque su serie o pelicula";
         include_once './templates/header.phtml';
