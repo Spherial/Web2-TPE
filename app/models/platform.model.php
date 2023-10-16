@@ -19,6 +19,9 @@
         }
 
 
+        
+
+
 
         //Obtiene los detalles de una plataforma
         public function getPlatformDetails($platform_id) {

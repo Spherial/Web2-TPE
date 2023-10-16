@@ -4,12 +4,15 @@ require_once './app/views/movie.view.php';
 require_once './app/models/movie.model.php';
 require_once './helpers/error.helper.php';
 require_once './helpers/auth.helper.php';
+require_once './app/models/platform.model.php';
 
 class MovieController{
 
     private $view;
     private $model;
 
+
+    private $platformModel;
     private $errorHelper;
     private $authHelper;
 
@@ -19,6 +22,7 @@ class MovieController{
         $this->model = new MovieModel();
         $this->errorHelper = new ErrorHelper();
         $this->authHelper = new AuthHelper();
+        $this->platformModel = new platformModel(); //Model para traer todas las plataformas
     }
 
 
@@ -63,7 +67,7 @@ class MovieController{
     //Para editar una pelicula, se le llama con editing = true y con el objeto de la pelicula a editar
     public function movieForm($editing = null,$movie = null){
         $this->authHelper->checkLoggedIn();
-        $platforms = $this->model->getAllPlatforms();
+        $platforms = $this->platformModel->getAllPlatforms();   //Para construir el select de plataformas
         include_once './templates/header.phtml';
         include_once './templates/formPelicula.phtml';
         
