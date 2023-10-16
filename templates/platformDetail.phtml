@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="<?=BASE_URL?>css/articleDetail.css">
 <div class="container">
-    <h1 class="mt-5">Detalles de la Plataforma</h1>
     <div class="row mt-4">
         <div class="col-md-6">
             <!-- Agrega una imagen de la plataforma -->
@@ -8,17 +7,24 @@
         </div>
         <div class="col-md-6">
             <!-- Agrega los detalles de la plataforma -->
-            <h2><?=$details->nombre?></h2>
-            <p><strong>Acceso directo:</strong> <?=$details->enlace?></p>
+            <a href="<?=$details->enlace?>" class="text-decoration-none"><h2><?=$details->nombre?></h2></a>
+            <?php if ($details->disponibilidad_ar == 1):?>
+                <p><strong>Disponible en tu region</strong></p>
+            <?php else:?>
+                <p><strong>No disponible en tu region</strong></p>
+            <?php endif?>
             <p><strong>Tipo de Contenido:</strong> <?=$details->tipo_contenido?></p>
-            <p><strong>Disponibilidad:</strong> <?=$details->disponibilidad_ar?></p>
             <p><strong>Precio: $</strong> <?=$details->precio?></p>
             <h1>CATÁLOGO DISPONIBLE:</h1>
             
             <!-- Muestra todas las peliculas de esta plataforma -->
+        <div class="row row-cols-2 row-cols-md-4 g-4">
             <?php foreach ($movies as $movie): ?>
-                <div class="movie-details">
-                    <a href="<?=BASE_URL?>peliculas/<?=$movie->id_pelicula?>" class="list-group-item-action"><?=$movie->titulo?></a>
+                <div class="col">
+                    <a href="<?=BASE_URL?>peliculas/<?=$movie->id_pelicula?>" class="text-decoration-none">
+                        <img src="<?= $movie->link_portada ?>" alt="Imagen de la Película" class="img-fluid movieDetails-image">
+                        <p class="text-decoration-none"><?= $movie->titulo ?></p>
+                    </a>
                 </div>
             <?php endforeach; ?>
         </div>

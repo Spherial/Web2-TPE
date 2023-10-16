@@ -1,30 +1,30 @@
-<div class="list-group col-md-6 mx-auto">
-        <a href="#" class="list-group-item list-group-item-action active">Peliculas</a>
-        <?php foreach ($movies as $movie):?>
-                <div class="d-flex justify-content-between align-items-center">
-                        <a href="<?=BASE_URL?>peliculas/<?=$movie->id_pelicula?>" class="list-group-item list-group-item-action"><?=$movie->titulo?></a>
-                        <a href="<?=BASE_URL?>editarPelicula/<?=$movie->id_pelicula?>">
-                        <?php if (isset($_SESSION["id"])): ?>
-                        <button class="btn btn-warning">Editar</button>
-                        <?php endif?>
-                        </a>
-                        <?php if (isset($_SESSION["id"])): ?>
-                        <a href="<?=BASE_URL?>eliminarPelicula/<?=$movie->id_pelicula?>">
-                        <button class="btn btn-danger">Eliminar</button>
-                        <?php endif?>
-                        </a>
-
-
+<div class="container mt-4">
+        <div class="row">
+                <?php foreach ($movies as $movie):?>
+                <div class="col-md-4 mb-3">
+                <div class="card">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                        <h5 class="card-title">
+                                <a href="<?=BASE_URL?>peliculas/<?=$movie->id_pelicula?>" class="font-weight-bold text-dark text-decoration-none"><?=$movie->titulo?></a>
+                        </h5>
+                <?php if (isset($_SESSION["id"])):?>
+                <div class="btn-group" role="group">
+                        <a href="<?=BASE_URL?>editarPelicula/<?=$movie->id_pelicula?>" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="<?=BASE_URL?>eliminarPelicula/<?=$movie->id_pelicula?>" class="btn btn-danger btn-sm">Eliminar</a>
                 </div>
-        <?php endforeach?>
-</div>
-
-
-<?php if (isset($_SESSION["id"])):?>
-        <div class="text-center">
-                <a href="<?=BASE_URL?>agregarPelicula"><button type="button" class="btn btn-outline-primary mx-auto">Agregar nueva pelicula</button></a>
+                <?php endif?>
+                </div>
+                </div>
+                </div>
+                <?php endforeach?>
         </div>
-<?php endif?>
+
+        <?php if (isset($_SESSION["id"])):?>
+        <div class="text-center">
+                <a href="<?=BASE_URL?>agregarPelicula" class="btn btn-outline-primary">Agregar nueva película</a>
+        </div>
+        <?php endif?>
+</div>
 
 
 <!-- Los botones de edicion solo se muestran si el usuario esta logueado (Si existe una id del $_SESSION) -->

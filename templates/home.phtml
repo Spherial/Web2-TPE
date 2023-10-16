@@ -2,9 +2,9 @@
 <div class="container-fluid movie-container">
     <div class="row">
         <?php foreach ($movies as $movie): ?>
-                <div class="col-md-2 mb-3">
-                    <a href="<?=BASE_URL?>peliculas/<?=$movie->id_pelicula?>"><img src="<?= $movie->link_portada ?>" alt="Imagen de la Película" class="movie-image"></a>
-                </div>
-            <?php endforeach; ?>
+            <div class="col-md-2 mb-3">
+                <a href="<?=BASE_URL?>peliculas/<?=$movie->id_pelicula?>"><img src="<?= $movie->link_portada ?>" alt="Imagen de la Película" class="movie-image"></a>
+            </div>
+        <?php endforeach; ?>
     </div>
 </div>
