@@ -7,7 +7,7 @@ require_once './helpers/auth.helper.php';
 require_once './app/models/platform.model.php';
 
 class MovieController{
-
+    //merge
     private $view;
     private $model;
 
