@@ -36,7 +36,7 @@ class platformController{
     public function showAllMoviesPlatform($platform_id) {
         if ($this->validateData([$platform_id])) {
             $titulo = "Plataforma";
-            $subtitulo = "categoria";
+            $subtitulo = "Categoria";
             include_once './templates/header.phtml';
     
             // info de la plataforma
