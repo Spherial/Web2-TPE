@@ -1,0 +1,14 @@
+<!-- Enlace al archivo CSS -->
+<link rel="stylesheet" href="<?= BASE_URL ?>css/articleDetail.css">
+
+<!-- Contenedor principal con estilo de Bootstrap -->
+<div class="container-fluid movie-container">
+    <div class="row">
+        <?php foreach ($peliculas as $pelicula): ?>
+            <div class="col-md-2 mb-3">
+                <!-- Utilizando la clase 'img-thumbnail' de Bootstrap para bordes redondeados -->
+                <img src="<?= $pelicula->link_portada ?>" alt="Imagen de la Película" class="movie-image">
+            </div>
+        <?php endforeach ?>
+    </div>
+</div>

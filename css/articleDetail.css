@@ -1,8 +1,16 @@
 .articleImage{
     max-width: 100%;
     height: auto;
-    max-height: 600px; 
+    max-height: 600px;
 
     border: 2px solid rgb(120, 120, 120);
     border-radius: 15px;
+}
+.movie-image {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
 }

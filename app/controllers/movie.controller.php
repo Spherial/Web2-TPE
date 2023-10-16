@@ -25,7 +25,8 @@ class MovieController{
 
     //Muestra el home
     public function showHome(){
-        $this->view->renderHome();
+        $peliculas = $this->model->getLinksMovies();
+        $this->view->renderHome($peliculas);
     }
 
 
