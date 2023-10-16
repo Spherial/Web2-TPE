@@ -88,11 +88,11 @@ class platformController{
         }
 
         if ($this->validateData($_POST)) {
-            $nombre = $_POST['nombre'];
-            $enlace = $_POST['enlace'];
-            $tipo_contenido = $_POST['tipo_contenido'];
-            $precio = $_POST['precio'];
-            $link_logo = $_POST['link_logo'];
+            $nombre = htmlspecialchars($_POST['nombre'], ENT_QUOTES, 'UTF-8');
+            $enlace = htmlspecialchars($_POST['enlace'], ENT_QUOTES, 'UTF-8');
+            $tipo_contenido = htmlspecialchars($_POST['tipo_contenido'], ENT_QUOTES, 'UTF-8');
+            $precio = htmlspecialchars($_POST['precio'], ENT_QUOTES, 'UTF-8');
+            $link_logo = htmlspecialchars($_POST['link_logo'], ENT_QUOTES, 'UTF-8');
             $id_nueva = $this->model->POSTplatform($nombre, $enlace, $tipo_contenido, $disponibilidad_ar, $precio,$link_logo);
             if ($id_nueva) {
                 header("Location:".BASE_URL."plataformas");
@@ -150,11 +150,11 @@ class platformController{
         }
 
         if ($this->validateData($_POST)) {
-            $nombre = $_POST['nombre']; //mergeado
-            $enlace = $_POST['enlace'];
-            $tipo_contenido = $_POST['tipo_contenido'];
-            $precio = $_POST['precio'];
-            $link_logo = $_POST['link_logo'];
+            $nombre = htmlspecialchars($_POST['nombre'], ENT_QUOTES, 'UTF-8');
+            $enlace = htmlspecialchars($_POST['enlace'], ENT_QUOTES, 'UTF-8');
+            $tipo_contenido = htmlspecialchars($_POST['tipo_contenido'], ENT_QUOTES, 'UTF-8');
+            $precio = htmlspecialchars($_POST['precio'], ENT_QUOTES, 'UTF-8');
+            $link_logo = htmlspecialchars($_POST['link_logo'], ENT_QUOTES, 'UTF-8');
             $affectedRows = $this->model->PUTplatform($nombre, $enlace, $tipo_contenido, $disponibilidad_ar, $precio, $platform_id,$link_logo);
             if ($affectedRows>0) {
                 header("Location:".BASE_URL."plataformas");

@@ -74,13 +74,13 @@ class MovieController{
     public function addMovie(){
         $this->authHelper->checkLoggedIn();
         if ($this->validateData($_POST)){
-            $titulo = $_POST["titulo"];
-            $sinopsis = $_POST["sinopsis"];
-            $director = $_POST["director"];
-            $fecha = $_POST["fecha"];
-            $cast = $_POST["cast"];
-            $plataforma = $_POST["plataforma"];
-            $link_portada = $_POST["link_portada"];
+            $titulo = htmlspecialchars($_POST["titulo"], ENT_QUOTES, 'UTF-8');
+            $sinopsis = htmlspecialchars($_POST["sinopsis"], ENT_QUOTES, 'UTF-8');
+            $director = htmlspecialchars($_POST["director"], ENT_QUOTES, 'UTF-8');
+            $fecha = htmlspecialchars($_POST["fecha"], ENT_QUOTES, 'UTF-8');
+            $cast = htmlspecialchars($_POST["cast"], ENT_QUOTES, 'UTF-8');
+            $plataforma = htmlspecialchars($_POST["plataforma"], ENT_QUOTES, 'UTF-8');
+            $link_portada = htmlspecialchars($_POST["link_portada"], ENT_QUOTES, 'UTF-8');
             $lastId = $this->model->POSTmovie($titulo,$sinopsis,$director,$fecha,$cast,$plataforma,$link_portada);
 
             if ($lastId){
@@ -143,14 +143,13 @@ class MovieController{
 
 
         if ($this->validateData($_POST)){
-            $titulo = $_POST["titulo"];
-            $sinopsis = $_POST["sinopsis"];
-            $director = $_POST["director"];
-            $fecha = $_POST["fecha"];
-            $cast = $_POST["cast"];
-            $plataforma = $_POST["plataforma"];
-            $link_portada = $_POST["link_portada"];
-
+            $titulo = htmlspecialchars($_POST["titulo"], ENT_QUOTES, 'UTF-8');
+            $sinopsis = htmlspecialchars($_POST["sinopsis"], ENT_QUOTES, 'UTF-8');
+            $director = htmlspecialchars($_POST["director"], ENT_QUOTES, 'UTF-8');
+            $fecha = htmlspecialchars($_POST["fecha"], ENT_QUOTES, 'UTF-8');
+            $cast = htmlspecialchars($_POST["cast"], ENT_QUOTES, 'UTF-8');
+            $plataforma = htmlspecialchars($_POST["plataforma"], ENT_QUOTES, 'UTF-8');
+            $link_portada = htmlspecialchars($_POST["link_portada"], ENT_QUOTES, 'UTF-8');
             $affectedRows = $this->model->PUTmovie($id,$titulo,$sinopsis,$director,$fecha,$cast,$plataforma,$link_portada);
 
             if ($affectedRows > 0){
