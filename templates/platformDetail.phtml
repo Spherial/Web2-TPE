@@ -18,7 +18,7 @@
             <!-- Muestra todas las peliculas de esta plataforma -->
             <?php foreach ($movies as $movie): ?>
                 <div class="movie-details">
-                    <a href="<?=BASE_URL?>peliculas/<?=$movie->id_pelicula?>" class="list-group-item list-group-item-action"><?=$movie->titulo?></a>
+                    <a href="<?=BASE_URL?>peliculas/<?=$movie->id_pelicula?>" class="list-group-item-action"><?=$movie->titulo?></a>
                 </div>
             <?php endforeach; ?>
         </div>
