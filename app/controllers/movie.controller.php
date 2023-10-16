@@ -141,7 +141,8 @@ class MovieController{
             die();
         }
 
-
+        //En la sanitizacion, las comillas son transformadas, pudiendose ser visibles en el string final
+        //El navegador no las toma en cuenta a la hora de procesar el HTML
         if ($this->validateData($_POST)){
             $titulo = htmlspecialchars($_POST["titulo"], ENT_QUOTES, 'UTF-8');
             $sinopsis = htmlspecialchars($_POST["sinopsis"], ENT_QUOTES, 'UTF-8');
