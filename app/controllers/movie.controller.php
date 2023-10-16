@@ -164,7 +164,7 @@ class MovieController{
         else{
             $this->errorHelper->showError("Debe rellenar todos los campos");
             $movie = $this->model->getMovieById($id);
-            $this->movieForm(true,$movie);
+            $this->movieForm(true,$movie); //Formulario con edicion
         }
     }
 
