@@ -92,8 +92,9 @@ class MovieController{
         }
         else{
             $this->errorHelper->showError("Deben rellenarse todos los campos del formulario");
-            $platforms = $this->model->getAllPlatforms();
-            include_once './templates/formPelicula.phtml';
+            
+           
+            $this->movieForm(false);  //Formulario sin edicion
         }
     }
 
@@ -162,6 +163,8 @@ class MovieController{
         }
         else{
             $this->errorHelper->showError("Debe rellenar todos los campos");
+            $movie = $this->model->getMovieById($id);
+            $this->movieForm(true,$movie);
         }
     }
 

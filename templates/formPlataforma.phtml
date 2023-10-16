@@ -5,15 +5,15 @@
             <form action="<?= $editing ? BASE_URL . 'updatePlataforma/' . $platform->id_plataforma : BASE_URL . 'addPlatform' ?>" method="POST">
                 <div class="form-group">
                     <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" name="nombre" value="<?= $editing ? $platform->nombre : '' ?>">
+                    <input type="text" class="form-control" name="nombre" value="<?= $editing ? $platform->nombre : '' ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="enlace">Enlace:</label>
-                    <input type="text" class="form-control" name="enlace" value="<?= $editing ? $platform->enlace : '' ?>">
+                    <input type="text" class="form-control" name="enlace" value="<?= $editing ? $platform->enlace : '' ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="tipo_contenido">tipo_contenido:</label>
-                    <input type="text" class="form-control" name="tipo_contenido" value="<?= $editing ? $platform->tipo_contenido : '' ?>">
+                    <input type="text" class="form-control" name="tipo_contenido" value="<?= $editing ? $platform->tipo_contenido : '' ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="disponibilidad_ar">disponibilidad_ar:</label>
@@ -21,12 +21,12 @@
                 </div>
                 <div class="form-group">
                     <label for="precio">precio:</label>
-                    <input type="number" class="form-control" name="precio" value="<?= $editing ? $platform->precio : '' ?>">
+                    <input type="number" class="form-control" name="precio" value="<?= $editing ? $platform->precio : '' ?>" required>
                 </div>
 
                 <div class="form-group">
                     <label for="link_logo">Enlace del logo</label>
-                    <input type="text" class="form-control" name="link_logo" value="<?= $editing ? $platform->link_logo : '' ?>">
+                    <input type="text" class="form-control" name="link_logo" value="<?= $editing ? $platform->link_logo : '' ?>" required>
                 </div>
 
                 <button type="submit" class="btn btn-primary"><?= $editing ? 'Editar' : 'Enviar' ?></button>

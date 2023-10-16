@@ -101,6 +101,10 @@ class platformController{
                 $this->errorHelper->showError("no se pudo agregar la plataforma.");
             }
         }
+        else{
+            $this->errorHelper->showError("Deben rellenarse todos los campos del formulario");
+            $this->platformForm(false);
+        }
     }
 
 
@@ -158,6 +162,12 @@ class platformController{
             else {
                 $this->errorHelper->showError("no se pudo editar la plataforma.");
             }
+        }
+        else{
+            $this->errorHelper->showError("Deben rellenarse todos los campos del formulario");
+            $platform = $this->model->getPlatformById($platform_id);
+            $this->platformForm(true,$platform);
+
         }
     }
 }
