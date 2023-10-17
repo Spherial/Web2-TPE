@@ -35,9 +35,7 @@ class platformController{
     //Muestra todas las peliculas de una plataforma dada
     public function showAllMoviesPlatform($platform_id) {
         if ($this->validateData([$platform_id])) {
-            $titulo = "Plataforma";
-            $subtitulo = "Categoria";
-            include_once './templates/header.phtml';
+           
     
             // info de la plataforma
             $details = $this->model->getPlatformDetails($platform_id);
@@ -46,7 +44,8 @@ class platformController{
                 // todas las películas de la pagina que estan en la plataforma
                 $movies = $this->model->getAllMoviesByPlatform($platform_id);
 
-                require_once './templates/platformDetail.phtml';
+                $this->view->renderAllMoviesPlatform($movies,$details);
+                
             } else {
                 $this->errorHelper->showError("Plataforma no encontrada.");
             }
@@ -71,8 +70,7 @@ class platformController{
 
     public function platformForm($editing = null, $platform = null) {
         $this->authHelper->checkLoggedIn();
-        include_once './templates/header.phtml';
-        require_once './templates/formPlataforma.phtml';
+        $this->view->renderPlatformForm($editing,$platform);
 
     }
 

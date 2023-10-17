@@ -46,12 +46,11 @@ class MovieController{
     //Muestra el detalle de una pelicula con una ID determinada
     public function showMovieDetail($movie_id){
         if ($this->validateData([$movie_id])){
-            $titulo = "Detalle";
-            $subtitulo = "Detalles de la pelicula";
-            include_once './templates/header.phtml';
+            
+            
             $details = $this->model->getMovieDetail($movie_id);
             if ($details){
-                require_once './templates/movieDetail.phtml';
+                $this->view->renderMovieDetail($details);
             }
             else{
                 $this->errorHelper->showError("Pelicula no encontrada.");
@@ -68,8 +67,7 @@ class MovieController{
     public function movieForm($editing = null,$movie = null){
         $this->authHelper->checkLoggedIn();
         $platforms = $this->platformModel->getAllPlatforms();   //Para construir el select de plataformas
-        include_once './templates/header.phtml';
-        include_once './templates/formPelicula.phtml';
+        $this->view->renderMovieForm($editing,$movie,$platforms);
         
     }
 
