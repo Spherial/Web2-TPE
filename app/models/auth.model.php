@@ -1,15 +1,7 @@
 <?php
-
-    class AuthModel{
-        private $db;
-
-
-
-        public function __construct(){
-            $this->db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8', DB_USER, DB_PASSWORD);
-        }
-
-
+require_once './app/models/model.php';
+    class AuthModel extends Model{
+       
 
 
         //Obtiene un usuario segun su nombre

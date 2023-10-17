@@ -1,12 +1,9 @@
 <?php
 
-    class platformModel{
-        private $db;
-        //SELECT a.*, b.nombre FROM plataforma a INNER JOIN pelicula b ON a.plataforma_id = b.id_plataforma;
-    
-        public function __construct(){
-            $this->db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8', DB_USER, DB_PASSWORD);
-        }
+require_once './app/models/model.php';
+
+    class platformModel extends Model{
+     
 
 
         //Obtiene una plataforma segun una ID

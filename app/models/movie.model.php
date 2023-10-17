@@ -1,12 +1,9 @@
 <?php
 
-class MovieModel{
-    private $db;
-    //SELECT a.*, b.nombre FROM peliculas a INNER JOIN plataformas b ON a.plataforma_id = b.id_plataforma;
+require_once './app/models/model.php';
 
-    public function __construct(){
-        $this->db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8', DB_USER, DB_PASSWORD);
-    }
+class MovieModel extends Model{
+  
 
 
     public function getAllMovies(){
