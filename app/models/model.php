@@ -1,8 +1,11 @@
 <?php
 require_once './config.php';
     class Model{
+
+        
         protected $db;
 
+        //Asignar su correspondiente PDO a cada model hijo
         public function __construct(){
             $this->db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8', DB_USER, DB_PASSWORD);
             $this->deploy();
